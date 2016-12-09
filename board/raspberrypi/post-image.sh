@@ -32,4 +32,12 @@ genimage                           \
 	--outputpath "${BINARIES_DIR}" \
 	--config "${GENIMAGE_CFG}"
 
-exit $?
+ret=$?
+
+#create directory if not exists
+[ -d "${BINARIES_DIR}/../../rpi3-rt-nfsroot" ] || mkdir "${BINARIES_DIR}/../../rpi3-rt-nfsroot"
+
+echo "extracting rootfs.tar"
+sudo tar -xaf "${BINARIES_DIR}/rootfs.tar" -C "${BINARIES_DIR}/../../rpi3-rt-nfsroot"
+
+exit $ret

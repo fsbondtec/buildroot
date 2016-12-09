@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# init real time clock....
+#
+
+case "$1" in
+  start)
+ 	echo "Synchronize with realtime clock..."
+	modprobe rtc-ds1307
+	echo "ds1307 0x68" > /sys/class/i2c-adapter/i2c-1/new_device
+	hwclock -s	
+	;;
+  stop)
+	#nothin to do 
+	;;
+  *)
+	echo "Usage: $0 {start|stop}"
+	exit 1
+esac
+
+exit $?
+

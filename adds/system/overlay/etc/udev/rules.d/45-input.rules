@@ -1,0 +1,2 @@
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="200a", MODE="660", GROUP="input"
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="200b", MODE="660", GROUP="input"
