@@ -1,0 +1,2 @@
+brmc folder in sysroot /lib/firmware kopieren
+siehe https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=138629&start=25
