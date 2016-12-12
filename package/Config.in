@@ -1117,6 +1117,7 @@ menu "JSON/XML"
 	source "package/tinyxml2/Config.in"
 	source "package/valijson/Config.in"
 	source "package/xerces/Config.in"
+	source "package/xsd/Config.in"
 	source "package/yajl/Config.in"
 	source "package/yaml-cpp/Config.in"
 endmenu

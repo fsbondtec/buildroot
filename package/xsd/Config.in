@@ -1,0 +1,9 @@
+config BR2_PACKAGE_XSD
+	bool "xsd"
+	select BR2_PACKAGE_XERCES
+	help
+	  CodeSynthesis XSD is an open-source, cross-platform W3C XML Schema to C++ data binding compiler.
+
+	  http://www.codesynthesis.com/products/xsd/
+
+comment "xsd needs xerces-c++. This is selected automatcally if xsd is choosen"
