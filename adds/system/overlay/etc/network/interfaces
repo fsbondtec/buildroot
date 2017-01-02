@@ -4,16 +4,16 @@ iface lo inet loopback
 
 # Wireless interfaces
 #auto wlan0
-iface wlan0 inet dhcp
-	wireless-essid any
-	pre-up wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf -B 
-	post-down killall -q wpa_supplicant
+#iface wlan0 inet dhcp
+#	wireless-essid any
+#	pre-up wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf -B 
+#	post-down killall -q wpa_supplicant
 	
 # Wired interfaces
-auto eth0
-iface eth0 inet static
-	address 169.168.0.9
-	netmask 255.255.0.0
+#auto eth0
+#iface eth0 inet static
+#	address 169.168.0.9
+#	netmask 255.255.0.0
 
 #auto eth0:1
-iface eth0:1 inet dhcp
+#iface eth0:1 inet dhcp
