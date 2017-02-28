@@ -21,3 +21,7 @@ gpu_mem_1024=256
 #dtoverlay=pi3-miniuart-bt
 enable_uart=1
 core_freq=250
+
+#enable i2c and spi
+dtparam=i2c1=on
+dtparam=spi=on
