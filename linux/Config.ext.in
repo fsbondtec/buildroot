@@ -1,5 +1,14 @@
 menu "Linux Kernel Extensions"
 
+# Custom logo
+config BR2_LINUX_KERNEL_EXT_CUSTOMLOGO
+	select BR2_PACKAGE_CUSTOMLOGO
+	bool "Custom logo"
+	help
+	  change linux boot logo with your own graphics. 
+	  Can be used as an early bootsplash.
+
+
 #-------------------------------------------------------------------------------
 # Xenomai
 config BR2_LINUX_KERNEL_EXT_XENOMAI

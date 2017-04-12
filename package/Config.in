@@ -210,6 +210,7 @@ comment "Sounds"
 
 comment "Themes"
 	source "package/gtk2-engines/Config.in"
+	source "package/customlogo/Config.in"
 
 endmenu
 
