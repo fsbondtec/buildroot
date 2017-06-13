@@ -1,1 +1,1 @@
-root=/dev/nfs rw ip=dhcp nfsroot=192.168.0.11:/home/user/workspace/lcp_buildroot_build/rpi3-rt/nfsroot console=tty1 console=ttyAMA0,115200 logo.nologo usbhid.quirks=0x068e:0x00ab:0x8 consoleblank=0
+root=/dev/nfs rw ip=dhcp nfsroot=10.143.36.151:/home/user/workspace/lcp_buildroot_build/rpi3-rt/nfsroot console=tty1 console=ttyAMA0,115200 logo.nologo usbhid.quirks=0x068e:0x00ab:0x8 consoleblank=0

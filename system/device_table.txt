@@ -21,4 +21,5 @@
 #/usr/X11R6/bin/Xfbdev		     	f	4755	0	0	-	-	-	-	-
 #set rights for own init scripts
 /etc/init.d/S60rtc					f	755	0	0	-	-	-	-	-
-/etc/init.d/S99misc					f	755	0	0	-	-	-	-	-
+/etc/init.d/S80misc					f	755	0	0	-	-	-	-	-
+/etc/init.d/S99lcp					f	755	0	0	-	-	-	-	-
