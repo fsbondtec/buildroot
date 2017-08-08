@@ -4,10 +4,8 @@
 #
 ################################################################################
 
-#RPI_FIRMWARE_VERSION = ad8608c08b122b2c228dba0ff5070d6e9519faf5
-
-#kernel: Bump to 4.4.27
-RPI_FIRMWARE_VERSION = 413fc664838e81caeabdc4118dc51e138d5d6c71
+#kernel: Bump to 4.4.50
+RPI_FIRMWARE_VERSION = b4b1f641ba1290bdf275b99922e16c0194a8e54b
 
 RPI_FIRMWARE_SITE = $(call github,raspberrypi,firmware,$(RPI_FIRMWARE_VERSION))
 RPI_FIRMWARE_LICENSE = BSD-3c

@@ -1,1 +1,0 @@
-root=/dev/mmcblk0p2 rootwait console=tty1 console=ttyAMA0,115200 logo.nologo usbhid.quirks=0x068e:0x00ab:0x8 consoleblank=0

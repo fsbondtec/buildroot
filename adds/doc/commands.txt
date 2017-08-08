@@ -1,2 +1,0 @@
-#write image to sd card
-dd bs=4M if=sdcard.img of=/dev/sdb

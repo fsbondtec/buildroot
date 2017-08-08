@@ -36,14 +36,14 @@
 #
 ################################################################################
 
-QT5CHARTS_VERSION = 5.7.0
-QT5CHARTS_SITE = http://download.qt.io/official_releases/qt/5.7/5.7.0/submodules
-QT5CHARTS_SOURCE = qtcharts-opensource-src-5.7.0.tar.xz
+QT5CHARTS_VERSION = 5.9.1
+QT5CHARTS_SITE = http://download.qt.io/official_releases/qt/5.9/5.9.1/submodules
+QT5CHARTS_SOURCE = qtcharts-opensource-src-5.9.1.tar.xz
 QT5CHARTS_DEPENDENCIES = qt5base qt5declarative
 QT5CHARTS_INSTALL_STAGING = YES
 
 define QT5CHARTS_CONFIGURE_CMDS
-	(cd $(@D); $(TARGET_MAKE_ENV) $(HOST_DIR)/usr/bin/qmake)
+	(cd $(@D); $(TARGET_MAKE_ENV) $(HOST_DIR)/bin/qmake)
 endef
 
 define QT5CHARTS_BUILD_CMDS
