@@ -23,4 +23,3 @@
 /etc/init.d/S60rtc					f	755	0	0	-	-	-	-	-
 /etc/init.d/S80misc					f	755	0	0	-	-	-	-	-
 /etc/init.d/S99lcp					f	755	0	0	-	-	-	-	-
-/tmp/dbus-started					f	755	0	0	-	-	-	-	-

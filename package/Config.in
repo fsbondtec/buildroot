@@ -1766,13 +1766,13 @@ menu "System tools"
 endmenu
 
 menu "Text editors and viewers"
+	source "package/vim/Config.in"
 	source "package/ed/Config.in"
 	source "package/joe/Config.in"
 	source "package/less/Config.in"
 	source "package/mc/Config.in"
 	source "package/nano/Config.in"
 	source "package/uemacs/Config.in"
-	source "package/vim/Config.in"
 endmenu
 
 endmenu

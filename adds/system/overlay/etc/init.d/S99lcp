@@ -9,16 +9,45 @@ start() {
 	if [ ! -f "/tmp/dbus-started" ]; then
         	dbus-launch --sh-syntax > /tmp/dbus-started
         	eval `cat /tmp/dbus-started`
-        	/usr/libexec/bluetooth/obexd &
-		echo "started"
 	else
         	#set only environment variables
         	eval `cat /tmp/dbus-started`
-		echo "set enviremet variable"
 	fi
 
+	/usr/libexec/bluetooth/obexd &
+
+	if [ ! -d /mnt/lcp ]
+	then 
+		mkdir /mnt/lcp 
+		chmod user:user /mnt/lcp
+	fi
+
+	if [ -e /dev/sda1 ]
+	then
+        	mount /dev/sda1 /mnt/lcp/
+		if [ -f /mnt/lcp/lcpgui ]
+		then
+    			cp -u /mnt/lcp/lcpgui /home/user/bin/lcpgui
+			chown user:user /home/user/bin/lcpgui
+			chmod 777 /home/user/bin/lcpgui
+		fi
+		if [ -f /mnt/lcp/lcp.ini ]
+		then
+    			cp -u /mnt/lcp/lcp.ini /home/user/bin/lcp.ini
+			chown user:user /home/user/bin/lcp.ini
+			chmod 770 /home/user/bin/lcp.ini
+		fi
+		if [ -f /mnt/lcp/machineCfg.ini ]
+		then
+    			cp -u /mnt/lcp/machineCfg.ini /home/user/bin/machineCfg.ini
+			chown user:user /home/user/bin/machineCfg.ini
+			chmod 770 /home/user/bin/machineCfg.ini
+		fi	
+		umount /dev/sda1
+	fi
 
 	printf "Starting lcpgui: "
+	export MasterTimestamp='2017-08-18'
 	/home/user/bin/lcpgui &
 	touch /home/user/bin/lock-lcpgui
 	echo "OK"
