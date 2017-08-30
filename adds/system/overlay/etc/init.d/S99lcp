@@ -19,7 +19,18 @@ start() {
 	if [ ! -d /mnt/lcp ]
 	then 
 		mkdir /mnt/lcp 
-		chmod user:user /mnt/lcp
+        chmod 777 /mnt/lcp
+	fi
+
+	if [ ! -d /opt/lcp ]
+	then 
+		mkdir /opt/lcp 
+        chmod 777 /opt/lcp
+	fi
+	if [ ! -d /opt/lcp/setups ]
+	then 
+		mkdir /opt/lcp/setups
+        chmod 777 /opt/lcp/setups
 	fi
 
 	if [ -e /dev/sda1 ]
@@ -27,36 +38,46 @@ start() {
         	mount /dev/sda1 /mnt/lcp/
 		if [ -f /mnt/lcp/lcpgui ]
 		then
-    			cp -u /mnt/lcp/lcpgui /home/user/bin/lcpgui
-			chown user:user /home/user/bin/lcpgui
-			chmod 777 /home/user/bin/lcpgui
+            cp -u /mnt/lcp/lcpgui /opt/lcp/lcpgui
+			chmod 777 /opt/lcp/lcpgui
 		fi
 		if [ -f /mnt/lcp/lcp.ini ]
 		then
-    			cp -u /mnt/lcp/lcp.ini /home/user/bin/lcp.ini
-			chown user:user /home/user/bin/lcp.ini
-			chmod 770 /home/user/bin/lcp.ini
+            cp -u /mnt/lcp/lcp.ini /opt/lcp/lcp.ini
+			chmod 777 /opt/lcp/lcp.ini
 		fi
 		if [ -f /mnt/lcp/machineCfg.ini ]
 		then
-    			cp -u /mnt/lcp/machineCfg.ini /home/user/bin/machineCfg.ini
-			chown user:user /home/user/bin/machineCfg.ini
-			chmod 770 /home/user/bin/machineCfg.ini
+            cp -u /mnt/lcp/machineCfg.ini /opt/lcp/machineCfg.ini
+			chmod 777 /opt/lcp/machineCfg.ini
 		fi	
 		umount /dev/sda1
 	fi
 
+    if [ -e "/opt/lcp/lcpgui.xml" ]
+	then
+	 	echo "Restore trace (lcpgui.xml) file to /tmp"
+	 	cp -p /opt/lcp/lcpgui.xml /tmp
+	fi
+
 	printf "Starting lcpgui: "
-	export MasterTimestamp='2017-08-18'
-	/home/user/bin/lcpgui &
-	touch /home/user/bin/lock-lcpgui
+	export MasterVersion='test_1.0.0'
+	export MasterTimestamp='2017-08-30 09:15'
+	/opt/lcp/lcpgui &
+	touch /opt/lcp/lock-lcpgui
 	echo "OK"
 }
 stop() {
 	printf "Stopping lcpgui: "
 	killall lcpgui
-	rm -f /home/user/bin/lock-lcpgui
+	rm -f /opt/lcp/lock-lcpgui
 	echo "OK"
+
+	if [ -e "/tmp/lcpgui.xml" ]
+	then
+		echo "Make trace file (lcpgui.xml) persistent to /opt/lcp"
+		cp -p /tmp/lcpgui.xml /opt/lcp/
+	fi
 }
 restart() {
 	stop
