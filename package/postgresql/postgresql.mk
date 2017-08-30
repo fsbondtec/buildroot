@@ -85,7 +85,7 @@ POSTGRESQL_POST_INSTALL_STAGING_HOOKS += POSTGRESQL_INSTALL_CUSTOM_PG_CONFIG
 
 define POSTGRESQL_INSTALL_INIT_SYSV
 	$(INSTALL) -m 0755 -D package/postgresql/S50postgresql \
-		$(TARGET_DIR)/etc/init.d/S50postgresql
+		$(TARGET_DIR)/etc/init.d/S51postgresql
 endef
 
 define POSTGRESQL_INSTALL_INIT_SYSTEMD
