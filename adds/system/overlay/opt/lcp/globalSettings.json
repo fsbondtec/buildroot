@@ -1,0 +1,13 @@
+{
+  "zeroForce": 0.0,
+  "gramPerDigits": 0.0,
+  "hostName": "x.x.x.x",
+  "port": 5432,
+  "databaseName": "db_bondtester",
+  "userName": "postgres",
+  "password": "",
+  "lastLoadedSetup": "testprogram",
+  "machineName": "LT101_XXX",
+  "poweroff": 1,
+  "timezoneOffset": 0
+} 

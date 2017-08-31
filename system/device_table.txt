@@ -22,3 +22,5 @@
 #set rights for own init scripts
 /etc/init.d/S60rtc					f	755	0	0	-	-	-	-	-
 /etc/init.d/S99lcp					f	755	0	0	-	-	-	-	-
+#lcp software self
+/opt/lcp                d   777 0   0   -   -   -   -   -

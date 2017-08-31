@@ -1,0 +1,10 @@
+{
+  "fallback": 2,
+  "grading": 2,
+  "lowerLimit": 40,
+  "lsl": 3.0,
+  "testForce": 8,
+  "testSpeed": 80,
+  "testType": 2,
+  "upperLimit": 1.0
+}

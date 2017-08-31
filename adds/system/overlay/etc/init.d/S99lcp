@@ -22,17 +22,6 @@ start() {
         chmod 777 /mnt/lcp
 	fi
 
-	if [ ! -d /opt/lcp ]
-	then 
-		mkdir /opt/lcp 
-        chmod 777 /opt/lcp
-	fi
-	if [ ! -d /opt/lcp/setups ]
-	then 
-		mkdir /opt/lcp/setups
-        chmod 777 /opt/lcp/setups
-	fi
-
 	if [ -e /dev/sda1 ]
 	then
         	mount /dev/sda1 /mnt/lcp/
@@ -62,7 +51,7 @@ start() {
 
 	printf "Starting lcpgui: "
 	export MasterVersion='test_1.0.0'
-	export MasterTimestamp='2017-08-30 14:55'
+	export MasterTimestamp='2017-08-31 09:20'
 	/opt/lcp/lcpgui &
 	touch /opt/lcp/lock-lcpgui
 	echo "OK"
