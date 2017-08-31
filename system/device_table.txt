@@ -24,3 +24,9 @@
 /etc/init.d/S99lcp					f	755	0	0	-	-	-	-	-
 #lcp software self
 /opt/lcp                d   777 0   0   -   -   -   -   -
+/opt/lcp/lcpgui         f   777 0   0   -   -   -   -   -
+/opt/lcp/lcp.ini        f   777 0   0   -   -   -   -   -
+/opt/lcp/machineCfg.ini f   777 0   0   -   -   -   -   -
+/opt/lcp/globalSettings.json f   777 0   0   -   -   -   -   -
+/opt/lcp/setups         d   777 0   0   -   -   -   -   -
+/opt/lcp/setups/testprogram.json f   777 0   0   -   -   -   -   -

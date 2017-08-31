@@ -51,7 +51,7 @@ start() {
 
 	printf "Starting lcpgui: "
 	export MasterVersion='test_1.0.0'
-	export MasterTimestamp='2017-08-31 09:20'
+	export MasterTimestamp='2017-08-31 12:55'
 	/opt/lcp/lcpgui &
 	touch /opt/lcp/lock-lcpgui
 	echo "OK"
