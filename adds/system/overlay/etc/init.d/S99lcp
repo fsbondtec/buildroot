@@ -43,15 +43,9 @@ start() {
 		umount /dev/sda1
 	fi
 
-    if [ -e "/opt/lcp/lcpgui.xml" ]
-	then
-	 	echo "Restore trace (lcpgui.xml) file to /tmp"
-	 	cp -p /opt/lcp/lcpgui.xml /tmp
-	fi
-
 	printf "Starting lcpgui: "
-	export MasterVersion='1.0.0'
-	export MasterTimestamp='2017-09-01 10:55'
+	export MasterVersion='test_1.0.0'
+	export MasterTimestamp='2017-09-01 12:00'
 	/opt/lcp/lcpgui &
 	touch /opt/lcp/lock-lcpgui
 	echo "OK"
@@ -61,12 +55,6 @@ stop() {
 	killall lcpgui
 	rm -f /opt/lcp/lock-lcpgui
 	echo "OK"
-
-	if [ -e "/tmp/lcpgui.xml" ]
-	then
-		echo "Make trace file (lcpgui.xml) persistent to /opt/lcp"
-		cp -p /tmp/lcpgui.xml /opt/lcp/
-	fi
 }
 restart() {
 	stop

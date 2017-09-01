@@ -6,7 +6,7 @@
   "databaseName": "db_bondtester",
   "userName": "postgres",
   "password": "",
-  "lastLoadedSetup":  "testprogram",
+  "lastLoadedSetup": "testprogram",
   "machineName": "LT101_XXX",
   "poweroff": 1,
   "timezoneOffset": 0
