@@ -5,7 +5,7 @@
 
 start() {
     printf "delete resize script if exists"
-	if [ ! -f "/etc/init.d/S98resize" ]; then
+	if [ -f "/etc/init.d/S98resize" ]; then
         rm /etc/init.d/S98resize
 	fi
     
@@ -50,7 +50,7 @@ start() {
 
 	printf "Starting lcpgui: "
 	export MasterVersion='test_1.0.0'
-	export MasterTimestamp='2017-09-04 15:46'
+	export MasterTimestamp='2017-09-04 16:00'
 	/opt/lcp/lcpgui &
 	touch /opt/lcp/lock-lcpgui
 	echo "OK"
