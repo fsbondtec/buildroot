@@ -1,0 +1,17 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+ 	echo "resize to full space"
+    parted /dev/mmcblk0 resizepart 2 100%
+    resize2fs /dev/mmcblk0p2
+	;;
+  stop)
+	#nothin to do 
+	;;
+  *)
+	echo "Usage: $0 {start|stop}"
+	exit 1
+esac
+
+exit $?

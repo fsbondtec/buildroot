@@ -4,14 +4,19 @@
 #
 
 start() {
+    printf "delete resize script if exists"
+	if [ ! -f "/etc/init.d/S98resize" ]; then
+        rm /etc/init.d/S98resize
+	fi
+    
 	printf "start dbus: " 
 	#check if dbus is started if not, start it! - is done with tmp file
 	if [ ! -f "/tmp/dbus-started" ]; then
-        	dbus-launch --sh-syntax > /tmp/dbus-started
-        	eval `cat /tmp/dbus-started`
+        dbus-launch --sh-syntax > /tmp/dbus-started
+        eval `cat /tmp/dbus-started`
 	else
-        	#set only environment variables
-        	eval `cat /tmp/dbus-started`
+        #set only environment variables
+        eval `cat /tmp/dbus-started`
 	fi
 
 	/usr/libexec/bluetooth/obexd &
@@ -45,7 +50,7 @@ start() {
 
 	printf "Starting lcpgui: "
 	export MasterVersion='test_1.0.0'
-	export MasterTimestamp='2017-09-04 13:50'
+	export MasterTimestamp='2017-09-04 15:46'
 	/opt/lcp/lcpgui &
 	touch /opt/lcp/lock-lcpgui
 	echo "OK"
