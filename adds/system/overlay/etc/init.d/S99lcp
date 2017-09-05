@@ -5,80 +5,84 @@
 
 start() {
     printf "delete resize script if exists"
-	if [ -f "/etc/init.d/S98resize" ]; then
+    if [ -f "/etc/init.d/S98resize" ]
+    then
         rm /etc/init.d/S98resize
-	fi
+    fi
     
-	printf "start dbus: " 
-	#check if dbus is started if not, start it! - is done with tmp file
-	if [ ! -f "/tmp/dbus-started" ]; then
+    printf "start dbus: " 
+    #check if dbus is started if not, start it! - is done with tmp file
+    if [ ! -f "/tmp/dbus-started" ]
+    then
         dbus-launch --sh-syntax > /tmp/dbus-started
         eval `cat /tmp/dbus-started`
-	else
+    else
         #set only environment variables
         eval `cat /tmp/dbus-started`
-	fi
+    fi
 
-	/usr/libexec/bluetooth/obexd &
+    /usr/libexec/bluetooth/obexd &
 
-	if [ ! -d /mnt/lcp ]
-	then 
-		mkdir /mnt/lcp 
+    if [ ! -d /mnt/lcp ]
+    then 
+        mkdir /mnt/lcp 
         chmod 777 /mnt/lcp
-	fi
+    fi
 
-	if [ -e /dev/sda1 ]
-	then
-        	mount /dev/sda1 /mnt/lcp/
-		if [ -f /mnt/lcp/lcpgui ]
-		then
+    if [ -e /dev/sda1 ]
+    then
+        mount /dev/sda1 /mnt/lcp/
+        if [ -f /mnt/lcp/lcpgui ]
+        then
             cp -u /mnt/lcp/lcpgui /opt/lcp/lcpgui
-			chmod 777 /opt/lcp/lcpgui
-		fi
-		if [ -f /mnt/lcp/lcp.ini ]
-		then
+            chmod 777 /opt/lcp/lcpgui
+        fi
+        if [ -f /mnt/lcp/lcp.ini ]
+        then
             cp -u /mnt/lcp/lcp.ini /opt/lcp/lcp.ini
-			chmod 777 /opt/lcp/lcp.ini
-		fi
-		if [ -f /mnt/lcp/machineCfg.ini ]
-		then
+            chmod 777 /opt/lcp/lcp.ini
+        fi
+        if [ -f /mnt/lcp/machineCfg.ini ]
+        then
             cp -u /mnt/lcp/machineCfg.ini /opt/lcp/machineCfg.ini
-			chmod 777 /opt/lcp/machineCfg.ini
-		fi	
-		umount /dev/sda1
-	fi
+            chmod 777 /opt/lcp/machineCfg.ini
+        fi
+        umount /dev/sda1
+    fi
 
-	printf "Starting lcpgui: "
-	export MasterVersion='test_1.0.0'
-	export MasterTimestamp='2017-09-04 16:00'
-	/opt/lcp/lcpgui &
-	touch /opt/lcp/lock-lcpgui
-	echo "OK"
+    printf "Starting lcpgui: "
+    export MasterVersion='test_1.0.0'
+    export MasterTimestamp='2017-09-05 09:55'
+    /opt/lcp/lcpgui &
+    touch /opt/lcp/lock-lcpgui
+    echo "OK"
 }
+
 stop() {
-	printf "Stopping lcpgui: "
-	killall lcpgui
-	rm -f /opt/lcp/lock-lcpgui
-	echo "OK"
+    printf "Stopping lcpgui: "
+    killall lcpgui
+    rm -f /opt/lcp/lock-lcpgui
+    echo "OK"
 }
+
 restart() {
-	stop
-	start
+    stop
+    start
 }
 
 case "$1" in
   start)
-	start
-	;;
+    start
+    ;;
   stop)
-	stop
-	;;
+    stop
+    ;;
   restart|reload)
-	restart
-	;;
+    restart
+    ;;
   *)
-	echo "Usage: $0 {start|stop|restart}"
-	exit 1
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
 esac
 
 exit $?
