@@ -37,7 +37,7 @@
 ################################################################################
 
 QT5CHARTS_VERSION = 5.9.1
-QT5CHARTS_SITE = http://download.qt.io/official_releases/qt/5.9/5.9.1/submodules
+QT5CHARTS_SITE = https://download.qt.io/new_archive/qt/5.9/5.9.1/submodules
 QT5CHARTS_SOURCE = qtcharts-opensource-src-5.9.1.tar.xz
 QT5CHARTS_DEPENDENCIES = qt5base qt5declarative
 QT5CHARTS_INSTALL_STAGING = YES
